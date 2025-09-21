@@ -1,0 +1,85 @@
+# Network Fundamentals 🌐💡
+
+Learning about computer networks can seem tough, but once you understand the basic building blocks, it's really logical. Think of networking like a highly structured postal service, where each step has rules and specialized jobs.
+
+---
+
+## Part 1: What is a Network? (The Big Picture)
+
+A network is a collection of communication devices connected together by media links.
+
+### Roles: Client and Server
+- **Server:** Powerful computer storing data (e.g., company info).  
+- **Client:** Simpler machine (desktop/phone) that requests data from the server.  
+
+**Communication:** Client sends a **request** → waits for a **reply** from the server process.
+
+### Network Types
+| Category | Scale | Link Type |
+| :--- | :--- | :--- |
+| **LAN** (Local Area Network) | Building/campus | Broadcast or Point-to-point |
+| **WAN** (Wide Area Network) | Country/continent | Point-to-point |
+| **Internetwork (Internet)** | Many interconnected networks | N/A |
+
+---
+
+## Part 2: Layered Architecture (The Rules)
+
+Networks are designed as a **protocol hierarchy** (stack of layers).  
+
+- **Protocol:** Rules governing communication between matching layers.  
+- Each layer provides **services** to the layer above it, hiding implementation details below.
+
+### Internet Model Layers
+| Layer | Data Unit | Responsibility |
+| :--- | :--- | :--- |
+| **Application (Layer 5)** | N/A | User services (DNS, HTTP, Email) |
+| **Transport (Layer 4)** | Segment | Process-to-process delivery |
+| **Network (Layer 3)** | Packet | Host-to-host delivery |
+| **Data Link (Layer 2)** | Frame | Node-to-node delivery |
+| **Physical (Layer 1)** | Bit | Transmit raw bits |
+
+### Layer Responsibilities
+
+**Layer 1: Physical Layer**
+- Moves individual **bits** between nodes.  
+- Deals with electrical signals, timing, media, and interfaces.  
+- **Transmission Modes:** Simplex, Half-duplex, Full-duplex  
+
+**Layer 2: Data Link Layer**
+- Converts unreliable bit stream into a reliable link.  
+- **Framing:** Breaks bits into frames (like letters in envelopes).  
+- **Addressing:** Physical/MAC addresses.  
+- **Sublayers:**  
+  - **MAC:** Channel access  
+  - **LLC:** Flow/error control  
+
+**Layer 3: Network Layer**
+- Sends **packets** from source host → destination host.  
+- **Addressing:** Logical/IP addresses.  
+- **Routing:** Determines best path via routers.  
+- **Service:** IP is connectionless and unreliable (best-effort delivery).  
+
+**Layer 4: Transport Layer**
+- Ensures messages arrive intact, ordered, and process-to-process.  
+- **Addressing:** Port addresses identify destination process.  
+- **Protocols:**  
+  - **TCP:** Reliable, connection-oriented  
+  - **UDP:** Unreliable, connectionless, fast  
+
+**Layer 5: Application Layer**
+- Interface for user applications.  
+- **Examples:** HTTP, SMTP, FTP, DNS  
+
+---
+
+## Part 3: Essential Design Concepts
+
+### Connection Types
+- **Connection-Oriented:** Establish → transfer → release. Guarantees order.  
+- **Connectionless (Datagram):** Packets routed individually. No order guarantee.  
+
+### Reliability and Control
+- **Flow Control:** Prevents sender from overwhelming receiver.  
+- **Error Control:** Detects and retransmits damaged/lost frames.  
+- **Sliding Window:** Combines flow & error control efficiently; simplifies to **Stop-and-Wait** when window size = 1.
